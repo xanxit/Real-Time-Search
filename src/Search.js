@@ -1,21 +1,20 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const Search = ({onSearchSubmit,clearResults}) => {
+const Search = ({ onSearchSubmit, clearResults }) => {
   const [term, setTerm] = useState("");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
-  
+
   useEffect(() => {
     const timer = setTimeout(() => setTerm(debouncedTerm), 1000);
     return () => clearTimeout(timer);
-}, [debouncedTerm])
+  }, [debouncedTerm]);
 
   useEffect(() => {
     if (term !== "") {
       onSearchSubmit(term);
-    }
-    else{
-        clearResults();
+    } else {
+      clearResults();
     }
   }, [term]);
   return (
@@ -24,8 +23,8 @@ const Search = ({onSearchSubmit,clearResults}) => {
         className="searchbar-input"
         type="text"
         placeholder="Search"
-        onChange={(e) => setTerm(e.target.value)}
-        value={term}
+        onChange={(e) => setDebouncedTerm(e.target.value)}
+        value={debouncedTerm}
       />
     </div>
   );
