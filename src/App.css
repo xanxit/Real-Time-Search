@@ -12,6 +12,7 @@
 
 .main-content{
   padding: 0 5%;
+  color: white;
 }
 
 .disclaimer-container{
@@ -29,17 +30,17 @@
     width: 90%;
   }
 }
-.quote-container{
+.beer-container{
   border-bottom: 1px solid grey;
   padding-top: 2%;
 }
 
-.quote{
+.beer{
   font-style: italic;
   font-size: 1.2em;
 }
 
-.quote-author{
+.beer-author{
   color: lightgray;
   font-size: .9em;
 }
